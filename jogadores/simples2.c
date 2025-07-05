@@ -87,16 +87,3 @@ int menor_disponivel() {
     }
     return idx;
 }
-
-int jogar_simples2(const Carta* mesa, const int num_na_mesa, const int vitorias) {
-    int idx = -1;
-    if (vitorias < aposta) {
-        idx = menor_carta_que_ganha(mesa, num_na_mesa);
-        if (idx == -1) idx = menor_disponivel();
-    } else {
-        idx = maior_carta_que_perde(mesa, num_na_mesa);
-        if (idx == -1) idx = menor_disponivel();
-    }
-    mao[idx].valor = -1; // Marca como usada
-    return idx;
-}
